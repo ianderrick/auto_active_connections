@@ -12,9 +12,9 @@ active_connections = s.connections()
 # create a file named "active_connections_HOSTNAME"
 with open("active_connections_{}".format(host), "w") as f:
     for conn in active_connections:
-        # get service name
+# get service name
         service = socket.getservbyport(conn.lport)
-        # get resolved hostname
+# get resolved hostname
         addr = socket.gethostbyaddr(conn.rhost)
-        # write connection info to file
+# write connection info to file
         f.write("{}:{} ({}) => {}\n".format(conn.lhost, conn.lport, service, addr))
